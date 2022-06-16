@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   scope module: 'admin' do
     resources :articles
   end
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root "articles#index"
   get "article/id", to: "articles#show"
 
