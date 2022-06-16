@@ -28,5 +28,5 @@ Rails.application.routes.draw do
   direct :homepage do
     "https://guides.rubyonrails.org/v6.0/routing.html"
   end
-
+  resources :articles, controller: 'images'
 end
