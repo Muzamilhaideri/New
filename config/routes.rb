@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   scope module: 'admin' do
     resources :articles
   end
-  resources :articles do
-    resources :comments, shallow: true
+  concern :commentable do
+    resources :comments
   end
+  resources :articles, concerns: :commentable, shallow: true
   root "articles#index"
   get "article/id", to: "articles#show"
+
+
 
 end
