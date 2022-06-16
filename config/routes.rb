@@ -21,4 +21,5 @@ Rails.application.routes.draw do
       get'search'
     end
   end
+  get 'article(/:id)', to: "articles#show"
 end
