@@ -3,10 +3,22 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   def index
-    @post = Posts.all
+    @posts = Post.all
   end
   def show
     @post = Post.find(params[:id])
+  end
+  def edit
+    @post = Post.find(params[:id])
+  end
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @posts
+    else
+      render'new'
+    end
+
   end
 
 
