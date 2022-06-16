@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get 'article(/:id)', to: "articles#show"
   get "article/id", to: "articles#show", as: :post
   match 'article/id', to: 'articles#show', via: [:post, :get]
+  get 'article/id', to: 'articles#show', constraints: {id: /[A-Z]\d{5}/ }
+
 end
