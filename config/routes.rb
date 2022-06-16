@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   end
   resources :articles, controller: 'images'
   resources :articles, as: 'posts'
+  resources :articles, only: [:create, :index]
 end
