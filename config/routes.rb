@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   resources :articles, concerns: :commentable, shallow: true
   root "articles#index"
   get "article/id", to: "articles#show"
-
-
-
+  resources :articles do
+    collection do
+      get 'search'
+    end
+  end
+  resources :articles do
+    member do
+      get'search'
+    end
+  end
 end
