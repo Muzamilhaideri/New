@@ -55,6 +55,7 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
+    flash[:notice] = "You have successfully deleted the article"
   end
 
   private
@@ -67,4 +68,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:Title, :Text)
     end
+
 end
