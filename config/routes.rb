@@ -29,4 +29,5 @@ Rails.application.routes.draw do
     "https://guides.rubyonrails.org/v6.0/routing.html"
   end
   resources :articles, controller: 'images'
+  resources :articles, as: 'posts'
 end
