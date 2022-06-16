@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     end
   end
   get 'article(/:id)', to: "articles#show"
-  get "article/id", to: "articles#show"
+  get "article/id", to: "articles#show", as: :post
+  match 'article/id', to: 'articles#show', via: [:post, :get]
 end
