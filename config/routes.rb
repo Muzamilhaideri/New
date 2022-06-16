@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     end
   end
   get 'article(/:id)', to: "articles#show"
+  get "article/id", to: "articles#show"
 end
