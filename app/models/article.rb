@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
   validates :Title, presence: true, format: { with: /\A[a-zA-Z]+\z/,
-            message: "only allows letters" }
+            message: "only allows letters" },length: {minimum: 2}
+  validates :Text, length: {maximum: 500}
 end
