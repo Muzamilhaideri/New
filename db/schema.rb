@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_061514) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_100231) do
   create_table "articles", force: :cascade do |t|
     t.string "Title"
     t.text "Text"
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_061514) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "full_name"
+    t.string "address"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -41,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_061514) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "profiles", "users"
   add_foreign_key "stories", "users"
 end

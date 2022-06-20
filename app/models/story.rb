@@ -1,3 +1,3 @@
 class Story < ApplicationRecord
-  belongs_to :user, dependent: :destroy, presence: true 
+  belongs_to :user, presence: true
 end
