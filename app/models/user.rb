@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :readers, through: :stories
   has_and_belongs_to_many :roles
+  has_many :pictures, as: :imageable
 end
