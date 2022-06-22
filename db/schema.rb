@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_21_124156) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_050849) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_124156) do
     t.text "Text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.integer "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_categories_on_profile_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -106,6 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_21_124156) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "readers", "stories"
   add_foreign_key "stories", "users"
